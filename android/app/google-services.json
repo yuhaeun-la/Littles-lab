@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "112187387260",
+    "firebase_url": "https://use-firebase-584a7-default-rtdb.firebaseio.com",
+    "project_id": "use-firebase-584a7",
+    "storage_bucket": "use-firebase-584a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112187387260:android:b16c78442f8740d4e288f9",
+        "android_client_info": {
+          "package_name": "com.example.carelink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "112187387260-2jp68sscil5rgfn2f4nk5vo9rs0hlevj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMejpxmjCE2QyIORyPqx5ue-nUa6B4g_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "112187387260-2jp68sscil5rgfn2f4nk5vo9rs0hlevj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "112187387260-iq0qb2csq47c86gctm8v4c9m5ttrlaji.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "test.UseFirebase"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
