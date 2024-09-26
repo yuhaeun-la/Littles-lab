@@ -2,8 +2,6 @@
 import 'package:carelink/viewmodels/child_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../viewmodels/child_view_model.dart';
-import '../di.dart';
 import 'package:go_router/go_router.dart';
 
 class ChildSetupPage extends StatelessWidget {

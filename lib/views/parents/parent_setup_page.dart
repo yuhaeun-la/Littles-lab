@@ -1,8 +1,8 @@
 // views/parent_setup_page.dart
+import 'package:carelink/viewmodels/parents_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../viewmodels/parent_view_model.dart';
-import '../di.dart';
+import 'package:carelink/di.dart';
 import 'package:go_router/go_router.dart';
 
 class ParentSetupPage extends StatelessWidget {

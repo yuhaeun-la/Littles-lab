@@ -1,10 +1,9 @@
 // router.dart
-import 'package:flutter/material.dart';
+import 'package:carelink/views/child/child_setup_page.dart';
+import 'package:carelink/views/listening_page.dart';
+import 'package:carelink/views/parents/parent_setup_page.dart';
+import 'package:carelink/views/sharedview/setup_page.dart';
 import 'package:go_router/go_router.dart';
-import 'views/setup_page.dart';
-import 'views/parent_setup_page.dart';
-import 'views/child_setup_page.dart';
-import 'views/webrtc_page.dart';
 
 final GoRouter appRouter = GoRouter(
   routes: [

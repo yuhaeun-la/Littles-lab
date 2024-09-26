@@ -1,8 +1,9 @@
 // views/webrtc_page.dart
+import 'package:carelink/di.dart';
+import 'package:carelink/viewmodels/webrtc_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../viewmodels/webrtc_view_model.dart';
-import '../di.dart';
+import 'package:get_it/get_it.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
 
 class WebRTCPage extends StatelessWidget {
