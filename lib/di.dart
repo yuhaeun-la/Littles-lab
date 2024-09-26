@@ -11,8 +11,8 @@ final getIt = GetIt.instance;
 void setupLocator() {
   // Firebase 인스턴스 등록
   getIt.registerLazySingleton(() => FirebaseStorage.instance);
-
   getIt.registerLazySingleton(() => FirebaseFirestore.instance);
+
   // ViewModel 등록
   getIt.registerFactory(() => ParentViewModel());
   getIt.registerFactory(() => ChildViewModel());

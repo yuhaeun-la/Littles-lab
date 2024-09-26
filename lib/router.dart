@@ -19,10 +19,10 @@ final GoRouter appRouter = GoRouter(
       path: '/child-setup',
       builder: (context, state) => ChildSetupPage(),
     ),
-    GoRoute(
+    GoRoute( // 자랑 할 부분
       path: '/webrtc/:isParent',
       builder: (context, state) {
-        final isParent = state.params['isParent'] == 'true';
+        final isParent = state.pathParameters['isParent'] == 'true';
         return WebRTCPage(isParent: isParent);
       },
     ),
