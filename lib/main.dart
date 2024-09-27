@@ -1,22 +1,22 @@
+// main.dart
 import 'package:flutter/material.dart';
+import 'package:carelink/router.dart';
+import 'package:carelink/di.dart'; // setupLocator를 import 합니다.
 
 void main() {
-  runApp(const MyApp());
+  setupLocator(); // 의존성 주입 설정
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      //home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    return MaterialApp.router(
+      routerDelegate: appRouter.routerDelegate,
+      routeInformationParser: appRouter.routeInformationParser,
+      routeInformationProvider: appRouter.routeInformationProvider,
+      debugShowCheckedModeBanner: false,
+      title: 'CareLink App',
     );
   }
 }
