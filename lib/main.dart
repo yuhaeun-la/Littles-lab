@@ -1,10 +1,12 @@
-// main.dart
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:carelink/di.dart';
 import 'package:carelink/router.dart';
-import 'package:carelink/di.dart'; // setupLocator를 import 합니다.
 
-void main() {
-  setupLocator(); // 의존성 주입 설정
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  setupLocator();
   runApp(MyApp());
 }
 
@@ -20,3 +22,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
