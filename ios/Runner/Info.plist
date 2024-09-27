@@ -45,5 +45,21 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+
+    <!-- 마이크 접근 권한 설정 -->
+    <key>NSMicrophoneUsageDescription</key>
+
+    <!-- 사진 접근 권한 설정 -->
+    <key>NSPhotoLibraryUsageDescription</key>
+
+    <!-- 카메라 접근 권한 설정 -->
+    <key>NSCameraUsageDescription</key>
+
+    <!-- 백그라운드 사용 권한 설정 -->
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>audio</string>
+        <string>fetch</string>
+    </array>
 </dict>
 </plist>
