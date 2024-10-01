@@ -1,4 +1,3 @@
-// router.dart
 import 'package:carelink/views/child/child_setup_page.dart';
 import 'package:carelink/views/listening_page.dart';
 import 'package:carelink/views/parents/parent_setup_page.dart';

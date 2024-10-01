@@ -1,4 +1,3 @@
-// models/parent.dart
 class Parent {
   String childName;
   String childAge;

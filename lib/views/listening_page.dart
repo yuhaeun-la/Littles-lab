@@ -1,4 +1,3 @@
-// views/webrtc_page.dart
 import 'package:carelink/di.dart';
 import 'package:carelink/viewmodels/webrtc_viewmodel.dart';
 import 'package:flutter/material.dart';

@@ -1,4 +1,3 @@
-// views/parent_setup_page.dart
 import 'package:carelink/viewmodels/parents_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

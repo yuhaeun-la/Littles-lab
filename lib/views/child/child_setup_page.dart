@@ -1,4 +1,3 @@
-// views/child_setup_page.dart
 import 'package:carelink/viewmodels/child_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:carelink/di.dart';
