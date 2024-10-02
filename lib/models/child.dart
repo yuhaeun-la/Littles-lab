@@ -3,8 +3,6 @@ class Child {
   String age;
   String? imageUrl;
   String? code;
-  String? pairingToken;       // 페어링 토큰 추가
-  DateTime? pairingTimestamp; // 페어링 타임스탬프 추가
   String? parentId;           // 페어링된 부모의 ID 추가
 
   Child({
@@ -12,8 +10,6 @@ class Child {
     required this.age,
     this.imageUrl,
     this.code,
-    this.pairingToken,
-    this.pairingTimestamp,
     this.parentId,
   });
 
@@ -23,8 +19,6 @@ class Child {
       'age': age,
       'imageUrl': imageUrl,
       'code': code,
-      'pairingToken': pairingToken,
-      'pairingTimestamp': pairingTimestamp?.toIso8601String(),
       'parentId': parentId,
     };
   }
@@ -35,10 +29,6 @@ class Child {
       age: json['age'],
       imageUrl: json['imageUrl'],
       code: json['code'],
-      pairingToken: json['pairingToken'],
-      pairingTimestamp: json['pairingTimestamp'] != null
-          ? DateTime.parse(json['pairingTimestamp'])
-          : null,
       parentId: json['parentId'],
     );
   }

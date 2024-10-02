@@ -22,10 +22,7 @@ class ChildSetupPage extends StatelessWidget {
                     decoration: InputDecoration(labelText: '부모 코드 입력'),
                   ),
                   SizedBox(height: 10),
-                  TextField(
-                    controller: viewModel.tokenController,
-                    decoration: InputDecoration(labelText: '페어링 토큰 입력'),
-                  ),
+
                   Spacer(),
                   ElevatedButton(
                     onPressed: () async {

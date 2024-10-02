@@ -5,9 +5,8 @@ import '../di.dart';
 class ChildViewModel extends ChangeNotifier {
   final _firestore = getIt<FirebaseFirestore>();
   final codeController = TextEditingController();
-  final tokenController = TextEditingController();
-  bool _isPaired = false;
 
+  bool _isPaired = false;
   bool get isPaired => _isPaired;
 
   Future<void> validateCode() async {
@@ -15,7 +14,7 @@ class ChildViewModel extends ChangeNotifier {
 
     try {
       final parentData = await _fetchParentData();
-      _validatePairingToken(parentData);
+      // _validatePairingToken(parentData);
       await _saveChildData(parentData);
       _isPaired = true;
       notifyListeners();
@@ -25,7 +24,7 @@ class ChildViewModel extends ChangeNotifier {
   }
 
   bool _validateInputs() {
-    if (codeController.text.trim().isEmpty || tokenController.text.trim().isEmpty) {
+    if (codeController.text.trim().isEmpty) {
       throw Exception('모든 입력 필드를 채워주세요');
     }
     return true;
@@ -34,6 +33,7 @@ class ChildViewModel extends ChangeNotifier {
   Future<Map<String, dynamic>> _fetchParentData() async {
     final code = codeController.text.trim();
     final parentRef = await _firestore.collection('parents').where('code', isEqualTo: code).get();
+    print('입력한 페어링 코드: $code');  // 디버깅을 위해 입력된 코드 출력
 
     if (parentRef.docs.isEmpty) {
       throw Exception('부모 코드가 유효하지 않습니다.');
@@ -42,22 +42,22 @@ class ChildViewModel extends ChangeNotifier {
     return parentRef.docs.first.data();
   }
 
-  void _validatePairingToken(Map<String, dynamic> parentData) {
-    final token = tokenController.text.trim();
-    final pairingTimestamp = parentData['pairingTimestamp'].toDate();
-
-    if (parentData['pairingToken'] != token ||
-        DateTime.now().difference(pairingTimestamp).inMinutes > 10) {
-      throw Exception('페어링 토큰이 유효하지 않거나 만료되었습니다.');
-    }
-  }
+  // void _validatePairingToken(Map<String, dynamic> parentData) {
+  //   final token = tokenController.text.trim();
+  //   final pairingTimestamp = parentData['pairingTimestamp'].toDate();
+  //
+  //   if (parentData['pairingToken'] != token ||
+  //       DateTime.now().difference(pairingTimestamp).inMinutes > 10) {
+  //     throw Exception('페어링 토큰이 유효하지 않거나 만료되었습니다.');
+  //   }
+  // }
 
   Future<void> _saveChildData(Map<String, dynamic> parentData) async {
     final parentId = parentData['id'];
     final childData = {
       'parentId': parentId,
       'paired': true,
-      'pairingToken': tokenController.text.trim(),
+      // 'pairingToken': tokenController.text.trim(),
       'createdAt': FieldValue.serverTimestamp(),
     };
     final childDocRef = await _firestore.collection('children').add(childData);
@@ -70,7 +70,6 @@ class ChildViewModel extends ChangeNotifier {
   @override
   void dispose() {
     codeController.dispose();
-    tokenController.dispose();
     super.dispose();
   }
 }

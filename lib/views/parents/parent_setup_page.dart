@@ -51,7 +51,7 @@ class ParentSetupPage extends StatelessWidget {
                         );
                       }
                     },
-                    child: Text('등록하기'),
+                    child: const Text('등록하기'),
                   ),
                 ],
               ),
