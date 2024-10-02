@@ -4,7 +4,9 @@ class SignalingService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Future<void> createOffer(String sdp) async {
-    await _firestore.collection('calls').doc('webrtc').set({'offer': {'sdp': sdp, 'type': 'offer'}});
+    await _firestore.collection('calls').doc('webrtc').set({
+      'offer': {'sdp': sdp, 'type': 'offer'}
+    });
   }
 
   Stream<DocumentSnapshot> onAnswer() {
@@ -12,7 +14,9 @@ class SignalingService {
   }
 
   Future<void> setAnswer(String sdp) async {
-    await _firestore.collection('calls').doc('webrtc').update({'answer': {'sdp': sdp, 'type': 'answer'}});
+    await _firestore.collection('calls').doc('webrtc').update({
+      'answer': {'sdp': sdp, 'type': 'answer'}
+    });
   }
 
   Future<void> addIceCandidate(Map<String, dynamic> candidate) async {

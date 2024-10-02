@@ -49,7 +49,9 @@ class ParentViewModel extends ChangeNotifier {
   }
 
   Future<String> _uploadImage() async {
-    final storageRef = _storage.ref().child('child_images/${DateTime.now().millisecondsSinceEpoch}.jpg');
+    final storageRef = _storage.ref().child(
+        'child_images/${DateTime.now().millisecondsSinceEpoch}.jpg'
+    );
     await storageRef.putFile(_imageFile!);
     return await storageRef.getDownloadURL();
   }
@@ -72,12 +74,16 @@ class ParentViewModel extends ChangeNotifier {
 
   String _generateCode() {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    return List.generate(5, (index) => chars[(chars.length * Random().nextDouble()).toInt()]).join();
+    return List.generate(
+        5, (index) => chars[(chars.length * Random().nextDouble()).toInt()]
+    ).join();
   }
 
   String _generateToken() {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    return List.generate(6, (index) => chars[(chars.length * Random().nextDouble()).toInt()]).join();
+    return List.generate(
+        6, (index) => chars[(chars.length * Random().nextDouble()).toInt()]
+    ).join();
   }
 
   @override
