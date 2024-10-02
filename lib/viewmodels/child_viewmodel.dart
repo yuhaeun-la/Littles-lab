@@ -12,15 +12,13 @@ class ChildViewModel extends ChangeNotifier {
   Future<void> validateCode() async {
     if (!_validateInputs()) return;
 
-    try {
+
       final parentData = await _fetchParentData();
       // _validatePairingToken(parentData);
       await _saveChildData(parentData);
       _isPaired = true;
       notifyListeners();
-    } catch (e) {
-      throw Exception('페어링 중 오류가 발생했습니다: $e');
-    }
+
   }
 
   bool _validateInputs() {
@@ -33,9 +31,9 @@ class ChildViewModel extends ChangeNotifier {
   Future<Map<String, dynamic>> _fetchParentData() async {
     final code = codeController.text.trim();
     final parentRef = await _firestore.collection('parents').where('code', isEqualTo: code).get();
-    print('입력한 페어링 코드: $code');  // 디버깅을 위해 입력된 코드 출력
 
     if (parentRef.docs.isEmpty) {
+      print('입력한 페어링 코드: $code');  // 디버깅을 위해 입력된 코드 출력
       throw Exception('부모 코드가 유효하지 않습니다.');
     }
 

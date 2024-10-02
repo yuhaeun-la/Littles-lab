@@ -22,7 +22,6 @@ class ChildSetupPage extends StatelessWidget {
                     decoration: InputDecoration(labelText: '부모 코드 입력'),
                   ),
                   SizedBox(height: 10),
-
                   Spacer(),
                   ElevatedButton(
                     onPressed: () async {
