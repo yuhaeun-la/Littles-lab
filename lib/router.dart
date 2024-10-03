@@ -1,16 +1,16 @@
 import 'package:carelink/views/child/child_setup_page.dart';
-import 'package:carelink/views/parents/listening_page.dart';
+import 'package:carelink/views/parents/listening_page.dart'; // ListeningPage 사용
 import 'package:carelink/views/parents/parent_setup_page.dart';
 import 'package:carelink/views/sharedview/setup_page.dart';
-import 'package:carelink/views/sharedview/splash_screen.dart';  // SplashScreen 추가
+import 'package:carelink/views/sharedview/splash_screen.dart';
 import 'package:go_router/go_router.dart';
-import 'package:carelink/views/child/child_home_page.dart'; // 아이 홈 페이지
-import 'package:carelink/views/parents/parent_home_page.dart'; // 부모 홈 페이지
+import 'package:carelink/views/child/child_home_page.dart';
+import 'package:carelink/views/parents/parent_home_page.dart';
 
 final GoRouter appRouter = GoRouter(
   routes: [
     GoRoute(
-      path: '/', // 기본 시작 경로를 SplashScreen으로 변경
+      path: '/',
       builder: (context, state) => const SplashScreen(),
     ),
     GoRoute(
@@ -18,16 +18,16 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => SetupPage(),
     ),
     GoRoute(
-      path: '/parent-home',
-      builder: (context, state) => ParentHomePage(), // 부모 홈 페이지로 이동
+      path: '/child-home',
+      builder: (context, state) => const ChildHomePage(), // 아이 홈 페이지
     ),
     GoRoute(
-      path: '/child-home',
-      builder: (context, state) => ChildHomePage(), // 아이 홈 페이지로 이동
+      path: '/parent-home',
+      builder: (context, state) => const ParentHomePage(), // 부모 홈 페이지
     ),
     GoRoute(
       path: '/parent-setup',
-      builder: (context, state) => const ParentSetupPage(),
+      builder: (context, state) => ParentSetupPage(),
     ),
     GoRoute(
       path: '/child-setup',
@@ -37,7 +37,7 @@ final GoRouter appRouter = GoRouter(
       path: '/webrtc/:isParent',
       builder: (context, state) {
         final isParent = state.pathParameters['isParent'] == 'true';
-        return (isParent: isParent);
+        return ListeningPage(isParent: isParent); // ListeningPage로 변경
       },
     ),
   ],
