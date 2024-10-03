@@ -11,14 +11,12 @@ class ChildViewModel extends ChangeNotifier {
 
   Future<void> validateCode() async {
     if (!_validateInputs()) return;
+    final parentData = await _fetchParentData();
 
-
-      final parentData = await _fetchParentData();
-      // _validatePairingToken(parentData);
-      await _saveChildData(parentData);
-      _isPaired = true;
-      notifyListeners();
-
+    // 두 개의 인수를 넘김 (부모 데이터, 부모 문서 ID)
+    await _saveChildData(parentData['data'], parentData['docId']);
+    _isPaired = true;
+    notifyListeners();
   }
 
   bool _validateInputs() {
@@ -33,34 +31,24 @@ class ChildViewModel extends ChangeNotifier {
     final parentRef = await _firestore.collection('parents').where('code', isEqualTo: code).get();
 
     if (parentRef.docs.isEmpty) {
-      print('입력한 페어링 코드: $code');  // 디버깅을 위해 입력된 코드 출력
       throw Exception('부모 코드가 유효하지 않습니다.');
     }
 
-    return parentRef.docs.first.data();
+    return {
+      'data': parentRef.docs.first.data(),
+      'docId': parentRef.docs.first.id
+    };
   }
 
-  // void _validatePairingToken(Map<String, dynamic> parentData) {
-  //   final token = tokenController.text.trim();
-  //   final pairingTimestamp = parentData['pairingTimestamp'].toDate();
-  //
-  //   if (parentData['pairingToken'] != token ||
-  //       DateTime.now().difference(pairingTimestamp).inMinutes > 10) {
-  //     throw Exception('페어링 토큰이 유효하지 않거나 만료되었습니다.');
-  //   }
-  // }
-
-  Future<void> _saveChildData(Map<String, dynamic> parentData) async {
-    final parentId = parentData['id'];
+  Future<void> _saveChildData(Map<String, dynamic> parentData, String parentDocId) async {
     final childData = {
-      'parentId': parentId,
       'paired': true,
-      // 'pairingToken': tokenController.text.trim(),
       'createdAt': FieldValue.serverTimestamp(),
     };
+
     final childDocRef = await _firestore.collection('children').add(childData);
 
-    await _firestore.collection('parents').doc(parentId).update({
+    await _firestore.collection('parents').doc(parentDocId).update({
       'pairedChildId': childDocRef.id,
     });
   }

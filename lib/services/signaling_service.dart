@@ -9,7 +9,7 @@ class SignalingService {
     });
   }
 
-  Stream<DocumentSnapshot> onAnswer() {
+  Stream<DocumentSnapshot> onOffer() {
     return _firestore.collection('calls').doc('webrtc').snapshots();
   }
 
@@ -17,6 +17,10 @@ class SignalingService {
     await _firestore.collection('calls').doc('webrtc').update({
       'answer': {'sdp': sdp, 'type': 'answer'}
     });
+  }
+
+  Stream<DocumentSnapshot> onAnswer() {
+    return _firestore.collection('calls').doc('webrtc').snapshots();
   }
 
   Future<void> addIceCandidate(Map<String, dynamic> candidate) async {

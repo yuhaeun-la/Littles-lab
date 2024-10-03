@@ -1,15 +1,15 @@
-import 'package:carelink/di.dart';
 import 'package:carelink/viewmodels/webrtc_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
+import 'package:carelink/di.dart';
 
-class WebRTCPage extends StatelessWidget {
+class ListeningPage extends StatelessWidget {
   final bool isParent;
 
-  const WebRTCPage({
+  const ListeningPage({
     super.key,
-    required this.isParent
+    required this.isParent,
   });
 
   @override
@@ -19,7 +19,9 @@ class WebRTCPage extends StatelessWidget {
       child: Consumer<WebRTCViewModel>(
         builder: (context, viewModel, child) {
           return Scaffold(
-            appBar: AppBar(title: Text(isParent ? '부모 - 듣기 모드' : '아이 - 전송 모드')),
+            appBar: AppBar(
+              title: Text(isParent ? '부모 - 듣기 모드' : '아이 - 전송 모드'),
+            ),
             body: Column(
               children: [
                 Expanded(

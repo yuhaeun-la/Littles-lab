@@ -3,16 +3,12 @@ class Parent {
   String childAge;
   String? imageUrl;
   String code;
-  String? pairedChildId;       // 페어링된 아이의 ID
-  String? webrtcId;            // WebRTC 연결 시 사용될 ID
 
   Parent({
     required this.childName,
     required this.childAge,
     this.imageUrl,
     required this.code,
-    this.pairedChildId,
-    this.webrtcId,
   });
 
   Map<String, dynamic> toJson() {
@@ -21,8 +17,6 @@ class Parent {
       'childAge': childAge,
       'imageUrl': imageUrl,
       'code': code,
-      'pairedChildId': pairedChildId,
-      'webrtcId': webrtcId,
     };
   }
 
@@ -32,8 +26,6 @@ class Parent {
       childAge: json['childAge'],
       imageUrl: json['imageUrl'],
       code: json['code'],
-      pairedChildId: json['pairedChildId'],
-      webrtcId: json['webrtcId'],
     );
   }
 }

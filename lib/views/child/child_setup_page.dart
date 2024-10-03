@@ -24,18 +24,14 @@ class ChildSetupPage extends StatelessWidget {
                   SizedBox(height: 10),
                   Spacer(),
                   ElevatedButton(
-                    onPressed: () async {
-                      try {
-                        await viewModel.validateCode();
+                    onPressed: ()  {
+
+                      viewModel.validateCode();
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text('페어링 성공!')),
                         );
                         context.go('/webrtc/false'); // WebRTC 페이지로 이동
-                      } catch (e) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(e.toString())),
-                        );
-                      }
+
                     },
                     child: Text('코드 확인하기'),
                   ),
