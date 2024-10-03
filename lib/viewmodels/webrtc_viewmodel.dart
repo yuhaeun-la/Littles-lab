@@ -8,6 +8,8 @@ class WebRTCViewModel extends ChangeNotifier {
   final RTCVideoRenderer _remoteRenderer = RTCVideoRenderer();
   final SignalingService _signalingService = SignalingService();
 
+  MediaStream? _localStream; // 로컬 오디오 스트림 추가
+
   RTCVideoRenderer get localRenderer => _localRenderer;
   RTCVideoRenderer get remoteRenderer => _remoteRenderer;
 
@@ -27,6 +29,9 @@ class WebRTCViewModel extends ChangeNotifier {
   Future<void> _createPeerConnection() async {
     final config = {'iceServers': [{'urls': 'stun:stun.l.google.com:19302'}]};
     _peerConnection = await createPeerConnection(config);
+
+    // 로컬 오디오 스트림 추가 (마이크 활성화)
+    await _startLocalAudioStream();
 
     // ICE Candidate 발생 시 처리
     _peerConnection.onIceCandidate = (RTCIceCandidate candidate) {
@@ -79,10 +84,26 @@ class WebRTCViewModel extends ChangeNotifier {
     });
   }
 
+  // 로컬 오디오 스트림 시작 (마이크 활성화)
+  Future<void> _startLocalAudioStream() async {
+    _localStream = await navigator.mediaDevices.getUserMedia({'audio': true});
+    _peerConnection.addStream(_localStream!);
+  }
+
+  // 소리 중단 시 로컬 오디오 스트림 정지 (마이크 비활성화)
+  void stopAudio() {
+    _localStream?.getTracks().forEach((track) {
+      track.stop();  // 트랙을 중단하여 마이크 비활성화
+    });
+    _peerConnection.close();
+    notifyListeners();
+  }
+
   @override
   void dispose() {
     _localRenderer.dispose();
     _remoteRenderer.dispose();
+    _localStream?.dispose();  // 로컬 스트림 해제
     _peerConnection.close();
     super.dispose();
   }

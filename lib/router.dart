@@ -27,7 +27,7 @@ final GoRouter appRouter = GoRouter(
     ),
     GoRoute(
       path: '/parent-setup',
-      builder: (context, state) => ParentSetupPage(),
+      builder: (context, state) => const ParentSetupPage(),
     ),
     GoRoute(
       path: '/child-setup',
@@ -36,8 +36,7 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/webrtc/:isParent',
       builder: (context, state) {
-        final isParent = state.pathParameters['isParent'] == 'true';
-        return ListeningPage(isParent: isParent); // ListeningPage로 변경
+        return const ListeningPage(); // ListeningPage로 변경
       },
     ),
   ],
