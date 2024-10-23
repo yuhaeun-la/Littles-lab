@@ -33,7 +33,6 @@ class ParentViewModel extends ChangeNotifier {
     try {
       final imageUrl = await _uploadImage();
       child = _createChildModel(imageUrl);
-      await _saveToFirestore();
     } catch (e) {
       throw Exception('데이터 업로드 중 오류가 발생했습니다: $e');
     }
@@ -44,6 +43,9 @@ class ParentViewModel extends ChangeNotifier {
         ageController.text.trim().isEmpty ||
         _imageFile == null) {
       throw Exception('모든 정보를 입력해주세요');
+    }
+    else {
+      _saveToFirestore();
     }
     return true;
   }

@@ -25,6 +25,7 @@ class SetupPage extends StatelessWidget {
             ElevatedButton(
               child: const Text('부모'),
               onPressed: () {
+                ///TODO : 이미 등록 단계에서 -setUserType을 해야함
                 _setUserType('parent', context); // 부모 역할 저장 및 이동
               },
             ),

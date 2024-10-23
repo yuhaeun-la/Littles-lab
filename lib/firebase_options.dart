@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDMejpxmjCE2QyIORyPqx5ue-nUa6B4g_o',
-    appId: '1:112187387260:android:b16c78442f8740d4e288f9',
+    appId: '1:112187387260:android:df0ec0b0c8f0394de288f9',
     messagingSenderId: '112187387260',
     projectId: 'use-firebase-584a7',
     databaseURL: 'https://use-firebase-584a7-default-rtdb.firebaseio.com',
@@ -60,12 +60,13 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBxrgQY_mmnkK0sW44-jNXUi0pL7mKYhE0',
-    appId: '1:112187387260:ios:9b1516d152babbd1e288f9',
+    appId: '1:112187387260:ios:fc7d5ad4e7d4dd3ae288f9',
     messagingSenderId: '112187387260',
     projectId: 'use-firebase-584a7',
     databaseURL: 'https://use-firebase-584a7-default-rtdb.firebaseio.com',
     storageBucket: 'use-firebase-584a7.appspot.com',
-    iosClientId: '112187387260-eor8bk4agsk5savi41l2tgqsj0n71jt9.apps.googleusercontent.com',
-    iosBundleId: 'com.example.carelink',
+    iosClientId: '112187387260-75bbob02blk8j73v3kaqr1v9902vve74.apps.googleusercontent.com',
+    iosBundleId: 'com.yuhaeun.carelink',
   );
+
 }

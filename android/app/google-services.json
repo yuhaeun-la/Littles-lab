@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:112187387260:android:b16c78442f8740d4e288f9",
+        "mobilesdk_app_id": "1:112187387260:android:df0ec0b0c8f0394de288f9",
         "android_client_info": {
-          "package_name": "com.example.carelink"
+          "package_name": "com.yuhaeun.carelink"
         }
       },
       "oauth_client": [
@@ -32,10 +32,10 @@
               "client_type": 3
             },
             {
-              "client_id": "112187387260-iq0qb2csq47c86gctm8v4c9m5ttrlaji.apps.googleusercontent.com",
+              "client_id": "112187387260-eor8bk4agsk5savi41l2tgqsj0n71jt9.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "test.UseFirebase"
+                "bundle_id": "com.example.carelink"
               }
             }
           ]

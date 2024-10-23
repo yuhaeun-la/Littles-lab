@@ -17,6 +17,7 @@ class ListeningPage extends StatelessWidget {
           return Scaffold(
             appBar: AppBar(
               title: const Text('부모 - 듣기 모드'),
+
             ),
             body: Column(
               children: [

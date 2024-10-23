@@ -103,7 +103,7 @@ class WebRTCViewModel extends ChangeNotifier {
   void dispose() {
     _localRenderer.dispose();
     _remoteRenderer.dispose();
-    _localStream?.dispose();  // 로컬 스트림 해제
+    _localStream?.dispose();
     _peerConnection.close();
     super.dispose();
   }

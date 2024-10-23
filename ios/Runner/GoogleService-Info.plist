@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>112187387260-eor8bk4agsk5savi41l2tgqsj0n71jt9.apps.googleusercontent.com</string>
+	<string>112187387260-75bbob02blk8j73v3kaqr1v9902vve74.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.112187387260-eor8bk4agsk5savi41l2tgqsj0n71jt9</string>
+	<string>com.googleusercontent.apps.112187387260-75bbob02blk8j73v3kaqr1v9902vve74</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBxrgQY_mmnkK0sW44-jNXUi0pL7mKYhE0</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.carelink</string>
+	<string>com.yuhaeun.carelink</string>
 	<key>PROJECT_ID</key>
 	<string>use-firebase-584a7</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:112187387260:ios:9b1516d152babbd1e288f9</string>
+	<string>1:112187387260:ios:fc7d5ad4e7d4dd3ae288f9</string>
 	<key>DATABASE_URL</key>
 	<string>https://use-firebase-584a7-default-rtdb.firebaseio.com</string>
 </dict>
