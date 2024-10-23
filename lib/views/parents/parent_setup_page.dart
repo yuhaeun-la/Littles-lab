@@ -1,11 +1,18 @@
-import 'package:carelink/viewmodels/parents_viewmodel.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:carelink/di.dart';
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
+import 'package:carelink/viewmodels/parents_viewmodel.dart';
 import 'package:go_router/go_router.dart';
+
 
 class ParentSetupPage extends StatelessWidget {
   const ParentSetupPage({super.key});
+
+  Future<void> _setUserRole(String role) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('userType', role); // 부모 역할 저장
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +48,11 @@ class ParentSetupPage extends StatelessWidget {
                     onPressed: () async {
                       try {
                         await viewModel.uploadData();
+                        await _setUserRole('parent'); // 부모 역할 저장
                         ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('등록 완료!'))
+                          const SnackBar(content: Text('등록 완료!')),
                         );
-                        context.go('/webrtc/true'); // WebRTC 페이지로 이동
+                        context.go('/parent-home'); // 부모 홈으로 이동
                       } catch (e) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text(e.toString())),
